@@ -43,6 +43,9 @@ const ValkyrieLib = {
 		var blockname = "Laser "+itemname;
 		var texture1 = "lens_"+type+"_top_bottom";
 		var texture2 = "lens_"+type+"_side";
+		if(dyedata == 15 || dyedata == 16 || dyedata == 17){
+			itemtexture = "lens";
+		};
 		IDRegistry.genItemID(itemid);
 		Item.createItem(itemid, itemname, {name: itemtexture, meta: 0}, {stack: 64});
 
@@ -488,7 +491,7 @@ const ValkyrieLib = {
 			for(let u = 9; u<45; u++){
 				let item = Player.getInventorySlot(u);
 				if(item.id === structure[i].id){
-					Player.setInventorySlot(u, structure[i].id, item.count-1, 0);*/
+					Player.setInventorySlot(u, structure[i].id, item.count-1, 0);
 					World.setBlock(c.x + structure[i].x, c.y + structure[i].y, c.z + structure[i].z, structure[i].id, 0);
 					//break str;
 				}else if(u==45){p=1; Game.message("Not Enough (> "+structure[i].id+" <) for assemble structure"); break str;}
